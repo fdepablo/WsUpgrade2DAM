@@ -8,17 +8,18 @@ import modelo.negocio.GestorUsuario;
 public class InterfazUsuario {
 
 	private GestorUsuario gu = null;
-	
+
 	public void mostrarInterfaz() {
 		System.out.println("Bienvenidos a nuestra app :)");
-		Usuario usuario = pedirDatos();
+		Usuario usuario = null;
 		gu = new GestorUsuario();
 		int respuesta = gu.validar(usuario);
-		
+
 		int contador = 0;
 		boolean validado = false;
-		
-		while(contador < 3 || !validado) {
+
+		while (contador < 3 && !validado) {
+			usuario = pedirDatos();
 			respuesta = gu.validar(usuario);
 			switch (respuesta) {
 			case 0:
@@ -29,22 +30,25 @@ public class InterfazUsuario {
 				validado = true;
 				break;
 			case 2:
-				System.out.println("Usuario y password no coincide");
+				System.out.println("Usuario y/o password incorrectos");
 				contador++;
 				break;
 			case 666:
 				System.out.println("Error de acceso. Intentelo mas tarde");
 				break;
 			}
-			usuario = pedirDatos();
+
 		}
-		
-		iniciarAplicacion();
-		
+
+		System.out.println("");
+		iniciarAplicacion(usuario);
+
 	}
 
-	private void iniciarAplicacion() {
-		System.out.println("Dame 70 pavos");
+	private void iniciarAplicacion(Usuario u) {
+		System.out.println("--------------------------");
+		System.out.println("Perfil de " + u.getNombre());
+		System.out.println("--------------------------");
 	}
 
 	private Usuario pedirDatos() {
