@@ -6,14 +6,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import modelo.entidad.Correo;
 
-;
-
 public class GeneradorEmails {
 	
 	private static GeneradorEmails instance = null;
 	private int contadorId;
 	
-	public static GeneradorEmails getInstance() {
+	//Trabajando con hilos es importante hacer este método sincronizado
+	public synchronized static GeneradorEmails getInstance() {
 		if(instance == null) {
 			instance = new GeneradorEmails();
 		}
