@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Cliente {
 public static final int PUERTO = 2018;
-public static final String IP_SERVER = "172.26.101.200";
+public static final String IP_SERVER = "172.26.100.184";
 
 public static void main(String[] args) {
 	System.out.println("        APLICACIÓN CLIENTE         ");
