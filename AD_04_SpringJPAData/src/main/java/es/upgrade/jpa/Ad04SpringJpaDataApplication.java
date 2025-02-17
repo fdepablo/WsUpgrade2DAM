@@ -38,7 +38,7 @@ public class Ad04SpringJpaDataApplication {
 			System.out.println("Primer" + m2);
 		}
 		
-		m = mDao.findByNombreContains("Pika");
+		m = mDao.findByNombreContaining("Pika");
 		System.out.println("SEgun" + m);
 		
 		List<Munion> lista = mDao.findByPuntosVida(20);
